@@ -12,7 +12,7 @@ Run the following commands:
 
 `cp .env.example .env`
 
-Then add Twilio credentials to the `.env` file
+Then add the username, password and Twilio credentials to the `.env` file
 
 ## Run
 
