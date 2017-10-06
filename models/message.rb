@@ -8,4 +8,12 @@ class Message < ActiveRecord::Base
   def sender
     outbound ? "CNYCN" : client.first_name
   end
+
+  def styled_time
+    created_at.in_time_zone('EST').strftime("%l:%M %P")
+  end
+
+  def date
+    created_at.in_time_zone('EST').strftime("%B %-d, %Y")
+  end
 end

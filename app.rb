@@ -84,7 +84,7 @@ end
 get ('/clients/:client_id') do
   protected!
   @client = Client.find(params[:client_id])
-  @messages = @client.messages.order(created_at: :asc)
+  @messages = @client.messages.order(created_at: :asc).group_by { |m| m.date }
 
   erb :messages
 end

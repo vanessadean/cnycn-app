@@ -12,7 +12,16 @@ body {
   margin-top: 25px;
 }
 
-h1, h2, h3, h4, h5 {
+.message-date {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
   color: #0b7e85;
 }
 
@@ -23,11 +32,6 @@ h5 {
 button {
   background-color: #0b7e85;
   color: white;
-}
-
-.help {
-  font-size: 8px;
-  padding: 10px 20px;
 }
 
 a {
@@ -43,10 +47,6 @@ a {
 .label {
   font-size: 10px;
   font-weight: bold;
-}
-
-.submit-button {
-  margin-bottom: 60px;
 }
 
 li {

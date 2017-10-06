@@ -2,10 +2,14 @@
   <div class="col-sm-6">
     <h3>Messages with <%= @client.first_name %> <%= @client.last_name %></h3>
     <div class="messages">
-      <% @messages.each do |message| %>
-        <ul>
-          <li><span class="sender"><%= message.sender %></span>: <%= message.text %></li>
-        </ul>
+      <% @messages.each do |date, messages| %>
+        <p class="message-date"><%= date %></p>
+        <% messages.each do |message| %>
+          <ul>
+            <li class="timestamp"><%= message.styled_time %></li>
+            <li><span class="sender"><%= message.sender %></span>: <%= message.text %></li>
+          </ul>
+        <% end %>
       <% end %>
     </div>
   </div>
