@@ -18,6 +18,6 @@ Then add the username, password and Twilio credentials to the `.env` file
 
 `ruby app.rb`
 
-## Live demo
+## Deployed at
 
-https://cnycn-texting-demo.herokuapp.com/
+https://cnycn-texting-app.herokuapp.com/
