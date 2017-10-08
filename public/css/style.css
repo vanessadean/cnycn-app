@@ -9,7 +9,6 @@ body {
 
 .messages {
   margin-left: 0;
-  margin-top: 25px;
 }
 
 .message-date {
@@ -23,9 +22,6 @@ h3,
 h4,
 h5 {
   color: #0b7e85;
-}
-
-h5 {
   padding-bottom: 15px;
 }
 
@@ -59,4 +55,14 @@ li {
 
 ul {
   padding-left: 0;
+}
+
+.new-messages {
+  background: #0b7e85;
+  color: white;
+  font-weight: bold;
+  font-size: 10px;
+  margin-left: 5px;
+  padding: 5px;
+  border-radius: 3px;
 }

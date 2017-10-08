@@ -9,4 +9,8 @@ class Client < ActiveRecord::Base
     digits = phone_number.split('')
     "(#{digits[0..2].join('')}) #{digits[3..5].join('')}-#{digits[6..10].join('')}"
   end
+
+  def unread_messages
+    messages.where(read_at: nil).count > 0
+  end
 end
