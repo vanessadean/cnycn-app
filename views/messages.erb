@@ -4,12 +4,12 @@
     <div class="messages">
       <% @messages.each do |date, messages| %>
         <p class="message-date"><%= date %></p>
-        <% messages.each do |message| %>
-          <ul>
+        <ul>
+          <% messages.each do |message| %>
             <li class="timestamp"><%= message.styled_time %></li>
             <li><span class="sender"><%= message.sender %></span>: <%= message.text %></li>
-          </ul>
-        <% end %>
+          <% end %>
+        </ul>
       <% end %>
     </div>
   </div>
@@ -31,3 +31,20 @@
 </div>
 
 <p><a href="/">Home</a></p>
+
+<script>
+  setInterval(function(){
+    $.ajax({
+      url: '/clients/' + <%= @client.id %> + '/new_messages',
+      success: function(response) {
+        var messages = JSON.parse(response)['messages'];
+        if (messages && messages.length > 0) {
+          for (var i = 0; i < messages.length; i++) {
+            $(".messages ul:last-child").append('<li class="timestamp">Now</li><li><span class="sender"><%= @client.first_name %></span>: ' + messages[i].text + '</li>');
+            $.ajax({ url: '/messages/'  + messages[i].id + '/mark_as_read', method: 'POST' });
+          }
+        }
+      }
+    });
+  }, 10000);
+</script>

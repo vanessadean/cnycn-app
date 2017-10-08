@@ -81,6 +81,14 @@ post '/send' do
   end
 end
 
+post '/receive' do
+  phone_number = params['From'].gsub('+1','')
+  @client = Client.find_by(phone_number: phone_number)
+  if @client.present?
+    @message = Message.create(text: params['Body'], client_id: @client.id, inbound: true)
+  end
+end
+
 get ('/clients/:client_id') do
   protected!
   @client = Client.find(params[:client_id])
@@ -90,12 +98,16 @@ get ('/clients/:client_id') do
   erb :messages
 end
 
-post '/receive' do
-  phone_number = params['From'].gsub('+1','')
-  @client = Client.find_by(phone_number: phone_number)
-  if @client.present?
-    @message = Message.create(text: params['Body'], client_id: @client.id, inbound: true)
-  end
+get '/clients/:client_id/new_messages' do
+  client = Client.find(params[:client_id])
+  messages = client.messages.where(read_at: nil)
+
+  { messages: messages, status: 200 }.to_json
+end
+
+post '/messages/:message_id/mark_as_read' do
+  message = Message.find(params[:message_id])
+  message.update_attribute(:read_at, Time.now)
 end
 
 get '/error' do
