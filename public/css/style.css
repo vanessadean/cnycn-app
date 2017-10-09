@@ -49,6 +49,10 @@ a {
   font-weight: bold;
 }
 
+.client-list {
+  margin-bottom: 10px;
+}
+
 li {
   list-style: none;
 }

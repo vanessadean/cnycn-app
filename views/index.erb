@@ -30,7 +30,12 @@
     <h2>Continue a Conversation</h2>
     <ul>
     <% @clients.each do |client| %>
-      <li><a href="/clients/<%= client.id %>"><%= client.first_name %> <%= client.last_name %> - <%= client.formatted_phone %></a></li>
+      <li id="<%= client.id %>" class="client-list">
+        <a href="/clients/<%= client.id %>"><%= client.first_name %> <%= client.last_name %> - <%= client.formatted_phone %></a>
+        <% if client.unread_messages %>
+          <span class="new-messages">New Messages</span>
+        <% end %>
+      </li>
     <% end %>
     </ul>
   </div>
