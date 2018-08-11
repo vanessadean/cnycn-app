@@ -1,5 +1,7 @@
 # CNYCN Texting Demo App
 
+This app was built for a [Delta.NYC](https://www.civichalllabs.org/probonotech/) pro bono collaboration with the [Center for NYC Neighborhoods](https://cnycn.org/).
+
 ## Setup
 
 Run the following commands:
